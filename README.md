@@ -13,7 +13,9 @@
 
 통신 방식은 총 세가지로 Socket, Server-relay, Server-Client를 기반으로 개발을 하고자 한다. 
 
-두 방식 모두 1 Server Process와 4 Client Process가 존재하는데 4명의 플레이어 중 1명의 플레이어가 Host권을 가지게 된다. 모든 플레이어는 Client Process를 통해 게임을 진행하고 Host Player의 Server Process에서 데이터를 처리하게 된다.  
+Socket, Server-relay 두 방식 모두 1 Server Process와 4 Client Process가 존재하는데 4명의 플레이어 중 1명의 플레이어가 Host권을 가지게 된다. 모든 플레이어는 Client Process를 통해 게임을 진행하고 Host Player의 Server Process에서 데이터를 처리하게 된다.  
+
+다만 Server-Client 에서는 Server Hardware에서 데이터를 처리하게 된다.
 
 세 통신 방식의 차이는 다음과 같다.
 
