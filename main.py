@@ -3,10 +3,11 @@ from data.py.def_list import *
 from data.py.images_rc import * 
 from data.py.def_qt import *
 
-run_pyrcc5()
+# run_pyrcc5()
 
 
 class Client_Class(QMainWindow, main_ui) :
+    @trace
     def __init__(self) :
         super().__init__()
         self.setupUi(self)
@@ -30,9 +31,10 @@ class Client_Class(QMainWindow, main_ui) :
 
         self.log_popup = Log_viewer(self)
         
-        self.main_Stacked_Widget.setCurrentIndex(0)
         self.init_music()
         self.Setting_dialog = Setting(self)
+        #####init
+        self.main_Stacked_Widget.setCurrentIndex(0)
 
     
     def resizeEvent(self, event):self.resize(event.size().width(), int(event.size().width() / (16 / 9)))
@@ -43,9 +45,11 @@ class Client_Class(QMainWindow, main_ui) :
             self.setting["name"] = name
             self.change_main_page("menu")
             print(self.setting)
+            self.client = Nomal_Client(name)
         else:
             pprint("닉네임을 입력해주세요.")
-
+            
+    @trace
     def init_music(self):
         #음악 재생
         self.mediaPlayer,self.mediaPlaylist = QMediaPlayer(),QMediaPlaylist()
@@ -55,7 +59,7 @@ class Client_Class(QMainWindow, main_ui) :
         self.mediaPlayer.setPlaylist(self.mediaPlaylist)
         self.mediaPlayer.play()
         self.set_music()
-        
+    @trace
     def set_music(self):
         match self.setting["background_media"]:
             case True:

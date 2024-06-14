@@ -6,6 +6,8 @@ from ..player_partial_status.own_card import OwnCard
 from ..player_partial_status.resource import Resource
 class PlayerStatus:
     def __init__(self):
+        self.name=""
+        self.image = ""
         self.observers = []
         self.card = OwnCard()
         self.farm = Farm()

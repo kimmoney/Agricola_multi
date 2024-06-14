@@ -21,6 +21,7 @@ class GameStatus:
         self.worker_count = [2,2,2,2]
         self.main_facility_status = MainFacilityStatus()
         self.acted = False
+        self.green_room_message=""
         
     def round_reset(self):
         self.worker_count = [2,2,2,2]
