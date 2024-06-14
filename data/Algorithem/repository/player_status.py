@@ -8,6 +8,7 @@ class PlayerStatus:
     def __init__(self):
         self.name=""
         self.image = ""
+        self.player_num=0
         self.observers = []
         self.card = OwnCard()
         self.farm = Farm()

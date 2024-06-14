@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1886</width>
+    <height>157</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <widget class="QLabel" name="host">
+     <property name="text">
+      <string>HOST</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="ip">
+     <property name="text">
+      <string>ip</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="ping">
+     <property name="text">
+      <string>ping</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="count">
+     <property name="text">
+      <string>1/4</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
