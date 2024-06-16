@@ -9,7 +9,9 @@ from PyQt5.QtCore import Qt,QUrl
 from PyQt5 import uic
 from qcr_converter import *
 from qcr_converter import run_pyrcc5
-
+import sys
+from PyQt5.QtCore import QThread, pyqtSignal
+from PyQt5.QtWidgets import QApplication, QLabel, QVBoxLayout, QWidget
 import sys,os,copy,random,socket,time,pickle
 from PyQt5 import uic
 from PyQt5.QtWidgets import *
@@ -49,10 +51,4 @@ def trace(func):
 
 
 import socket,time,pickle
-
-
-# if __name__ == "__main__":
-#     sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-#     from main import *
-#     Start_Client()
 

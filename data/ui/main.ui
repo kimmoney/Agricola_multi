@@ -177,6 +177,9 @@ QLabel{
               <property name="inputMask">
                <string/>
               </property>
+              <property name="text">
+               <string>김도훈</string>
+              </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
               </property>
@@ -475,7 +478,7 @@ QPushButton{
        </layout>
       </widget>
       <widget class="QWidget" name="greenroom">
-       <layout class="QVBoxLayout" name="verticalLayout_8" stretch="1,5,1">
+       <layout class="QVBoxLayout" name="verticalLayout_8" stretch="1,5,0,1">
         <property name="topMargin">
          <number>9</number>
         </property>
@@ -491,7 +494,7 @@ QPushButton{
            <number>0</number>
           </property>
           <item>
-           <widget class="QLabel" name="label_5">
+           <widget class="QLabel" name="greenroom_player_name_0">
             <property name="text">
              <string>플레이어1</string>
             </property>
@@ -501,7 +504,7 @@ QPushButton{
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_4">
+           <widget class="QLabel" name="greenroom_player_name_1">
             <property name="text">
              <string>플레이어2</string>
             </property>
@@ -511,7 +514,7 @@ QPushButton{
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_3">
+           <widget class="QLabel" name="greenroom_player_name_2">
             <property name="text">
              <string>플레이어3</string>
             </property>
@@ -521,7 +524,7 @@ QPushButton{
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_2">
+           <widget class="QLabel" name="greenroom_player_name_3">
             <property name="text">
              <string>플레이어4</string>
             </property>
@@ -555,6 +558,13 @@ QPushButton{
          </layout>
         </item>
         <item>
+         <widget class="QPushButton" name="near_ready">
+          <property name="text">
+           <string>준비</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QPushButton" name="back_greenroom">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -569,7 +579,210 @@ QPushButton{
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="game"/>
+      <widget class="QWidget" name="game">
+       <widget class="QPushButton" name="pushButton">
+        <property name="geometry">
+         <rect>
+          <x>660</x>
+          <y>410</y>
+          <width>1131</width>
+          <height>181</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>함수 실행</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit">
+        <property name="geometry">
+         <rect>
+          <x>730</x>
+          <y>840</y>
+          <width>751</width>
+          <height>51</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>840</y>
+          <width>271</width>
+          <height>221</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>뒤로가기</string>
+        </property>
+       </widget>
+       <widget class="QWidget" name="widget_5" native="true">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>290</y>
+          <width>671</width>
+          <height>621</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_10">
+         <item>
+          <widget class="QLabel" name="data_test_0">
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="data_test_1">
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="data_test_2">
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="data_test_3">
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="data_test_4">
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="data_test_5">
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="data_test_6">
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="data_test_7">
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="data_test_8">
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="data_test_9">
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="data_test_10">
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QLabel" name="data_test_11">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>30</y>
+          <width>1841</width>
+          <height>49</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLabel" name="data_test_12">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>150</y>
+          <width>1841</width>
+          <height>49</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="geometry">
+         <rect>
+          <x>1230</x>
+          <y>920</y>
+          <width>631</width>
+          <height>131</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>다음턴</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_4">
+        <property name="geometry">
+         <rect>
+          <x>680</x>
+          <y>620</y>
+          <width>1131</width>
+          <height>181</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>업데이트</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="data_test_13">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>220</y>
+          <width>1841</width>
+          <height>49</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </widget>
       <widget class="QWidget" name="end"/>
      </widget>
     </item>
@@ -606,6 +819,22 @@ QPushButton{
     <hint type="destinationlabel">
      <x>948</x>
      <y>677</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lineEdit</sender>
+   <signal>returnPressed()</signal>
+   <receiver>pushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1415</x>
+     <y>862</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1466</x>
+     <y>734</y>
     </hint>
    </hints>
   </connection>

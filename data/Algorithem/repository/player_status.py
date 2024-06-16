@@ -5,9 +5,12 @@ from ..farm.farm import Farm
 from ..player_partial_status.own_card import OwnCard
 from ..player_partial_status.resource import Resource
 class PlayerStatus:
-    def __init__(self):
-        self.name=""
+    def __init__(self,name,ip):
+        
+        self.name=name
+        self.ip=ip
         self.image = ""
+        self.ready = False
         self.player_num=0
         self.observers = []
         self.card = OwnCard()

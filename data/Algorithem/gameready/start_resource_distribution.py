@@ -6,12 +6,14 @@ from ..global_repository import player_status_repository
 
 
 def StartResourceDistribution():
-        player_status_repository[0].resource.set_food(3)
-        player_status_repository[0].resource.set_first_turn(True)
-        player_status_repository[0].set_worker(2)
-        player_status_repository[1].resource.set_food(4)
-        player_status_repository[1].set_worker(2)
-        player_status_repository[2].resource.set_food(4)
-        player_status_repository[2].set_worker(2)
-        player_status_repository[3].resource.set_food(4)
-        player_status_repository[3].set_worker(2)
+    first = True
+    print(player_status_repository)
+    for player in player_status_repository:
+        if first:
+                player_status_repository[player].resource.set_food(3)
+                player_status_repository[player].resource.set_first_turn(True)
+                player_status_repository[player].set_worker(2)
+                first = False
+        else:
+                player_status_repository[player].resource.set_food(4)
+                player_status_repository[player].set_worker(2)

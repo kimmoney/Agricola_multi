@@ -12,40 +12,43 @@ def change_main_stacked(self):
 
 def change_stacked_page(self, stacked_Widget, after_page):
     after_page = getattr(self, after_page)
-    self.speed = 13
-    self.total_timer_count = 10
-    if not self.timer_close.isActive() and not self.timer_open.isActive():
-        # 이걸로 속도 조절 낮을수록 빠름
-        self.timer_close = QTimer(self)
-        self.timer_open = QTimer(self)
-        self.current_timer_count = 0
-        self.timer_open.stop()
-        self.timer_close.stop()
-        self.timer_close.timeout.connect(lambda : process_timer_close(self,after_page))
-        self.timer_close.start(self.speed)
-        self.timer_open.timeout.connect(lambda : process_timer_open(self,after_page))
-    def process_timer_close(self,after_page):
-        self.opacity_effect = QGraphicsOpacityEffect(stacked_Widget.currentWidget())
-        self.opacity_effect_after = QGraphicsOpacityEffect(after_page)
-        self.opacity_effect_after.setOpacity(0)
-        self.opacity_effect.setOpacity(1-0.1*self.current_timer_count)
-        stacked_Widget.currentWidget().setGraphicsEffect(self.opacity_effect)
-        self.current_timer_count += 1
-        if self.current_timer_count == self.total_timer_count:
+    if stacked_Widget.currentWidget() != after_page:
+        self.speed = 13
+        self.total_timer_count = 10
+        if not self.timer_close.isActive() and not self.timer_open.isActive():
+            # 이걸로 속도 조절 낮을수록 빠름
+            self.opacity_effect = QGraphicsOpacityEffect(stacked_Widget.currentWidget())
+            self.opacity_effect_after = QGraphicsOpacityEffect(after_page)
             self.opacity_effect_after.setOpacity(0)
-            stacked_Widget.setCurrentWidget(after_page)
-            while not after_page.isVisible():
-                pass
-            # self.title.setText(title)
-            self.timer_open.start(self.speed)
-            self.timer_close.stop()
-            self.opacity_effect_after.setOpacity(1)
-    def process_timer_open(self,after_page):
-        self.opacity_effect_after.setOpacity(1-0.1*self.current_timer_count)
-        after_page.setGraphicsEffect(self.opacity_effect_after)
-        self.current_timer_count -= 1
-        if self.current_timer_count == 0:
+            self.timer_close = QTimer(self)
+            self.timer_open = QTimer(self)
+            self.current_timer_count = 0
             self.timer_open.stop()
+            self.timer_close.stop()
+            self.timer_close.timeout.connect(lambda : process_timer_close(self,after_page))
+            self.timer_close.start(self.speed)
+            self.timer_open.timeout.connect(lambda : process_timer_open(self,after_page))
+            self.opacity_effect.setOpacity(1)
+
+        def process_timer_close(self,after_page):
+            self.opacity_effect.setOpacity(1-0.1*self.current_timer_count)
+            stacked_Widget.currentWidget().setGraphicsEffect(self.opacity_effect)
+            self.current_timer_count += 1
+            if self.current_timer_count == self.total_timer_count:
+                self.opacity_effect_after.setOpacity(0)
+                stacked_Widget.setCurrentWidget(after_page)
+                while not after_page.isVisible():
+                    pass
+                # self.title.setText(title)
+                self.timer_open.start(self.speed)
+                self.timer_close.stop()
+                self.opacity_effect_after.setOpacity(1)
+        def process_timer_open(self,after_page):
+            self.opacity_effect_after.setOpacity(1-0.1*self.current_timer_count)
+            after_page.setGraphicsEffect(self.opacity_effect_after)
+            self.current_timer_count -= 1
+            if self.current_timer_count == 0:
+                self.timer_open.stop()
 
 
 

@@ -10,6 +10,7 @@ class GameStatus:
     def __init__(self):
         self.observers = []
         self.now_round = 0  # 현재 라운드
+        self.num_players = 0
         self.now_turn_player = 0  # 현재 턴 플레이어
         self.next_turn_player = 0  # 다음 턴 플레이어
         self.round_card_order = [0 for i in range(14)]  # 라운드 카드의 순서. reverse map으로 탐색
@@ -21,7 +22,29 @@ class GameStatus:
         self.worker_count = [2,2,2,2]
         self.main_facility_status = MainFacilityStatus()
         self.acted = False
-        
+        self.status = "None" # greenroom , start
+        self.next = False
+        self.players = []
+    # @property
+    # def now_turn_player(self):
+    #     return self._now_turn_player
+
+    # @now_turn_player.setter
+    # def now_turn_player(self, value):
+    #     self._now_turn_player = value
+    #     self.next_turn_player = self._calculate_next_turn_player()
+    # def _calculate_next_turn_player(self):
+    #     if self.num_players!=0:
+    #         print(self.players)
+    #         print(self.players.indes(self._now_turn_player))
+    #         print(self.players[(self.players.indes(self._now_turn_player) + 1) % len(self.players)])
+    #         return self.players[(self.players.indes(self._now_turn_player) + 1) % len(self.players)]
+    #     else:
+    #         return 0
+    
+    def next_player(self):
+        self.now_turn_player = self.players[(self.players.index(self.now_turn_player) + 1) % len(self.players)]
+        self.next_turn_player = self.players[(self.players.index(self.now_turn_player) + 1) % len(self.players)]
     def round_reset(self):
         self.worker_count = [2,2,2,2]
         self.round_card_put = [None for i in range(14)] 
