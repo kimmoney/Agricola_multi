@@ -26,22 +26,26 @@ class Client_Class(QMainWindow, main_ui) :
         self.btn_sign_up_confirm.clicked.connect(self.func_sign_up)
         self.btn_sign_up_exit.clicked.connect(lambda:self.change_main_page("start_page"))
 
-        self.btn_main_greenroom_near.clicked.connect(lambda:self.change_main_page("greenroom_near"))
-        self.btn_main_greenroom_near.clicked.connect(self.func_greenroom_near_show)
-        self.btn_main_greenroom_far.clicked.connect(lambda:self.change_main_page("greenroom_far"))
+        self.btn_main_greenroom_near.   clicked.connect(lambda:self.change_main_page("greenroom_near"))
+        self.btn_main_greenroom_near.   clicked.connect(self.func_greenroom_near_show)
+        
+        self.btn_main_greenroom_far.    clicked.connect(lambda:self.change_main_page("greenroom_far"))
+
+
+
         self.btn_main_setting.clicked.connect(self.open_setting)
 
-        self.back_near.clicked.connect(lambda:self.change_main_page("menu"))
-        self.near_ready.clicked.connect(self.func_near_ready)
-        self.back_far. clicked.connect(lambda:self.change_main_page("menu"))
-        self.pushButton_2. clicked.connect(lambda:self.change_main_page("menu"))
-        self.pushButton.clicked.connect(self.test)
-        self.pushButton_3.clicked.connect(self.next_turn)
-        self.pushButton_4.clicked.connect(self.push_data)
+        self.near_back.     clicked.connect(lambda:self.change_main_page("menu"))
+        self.near_ready.    clicked.connect(self.func_near_ready)
+        self.far_back.      clicked.connect(lambda:self.change_main_page("menu"))
+        self.pushButton_2.  clicked.connect(lambda:self.change_main_page("menu"))
 
-        # self.back_greenroom. clicked.connect(lambda:self.change_main_page("menu"))
-        # self.back_greenroom. clicked.connect(lambda:print(game_status_repository.status))
-        # self.back_greenroom. clicked.connect(self.update_status_all)
+
+
+
+        self.pushButton.clicked.connect(self.test)
+        self.pushButton_4.clicked.connect(self.push_data)
+        self.pushButton_3.clicked.connect(self.next_turn)
         self.back_greenroom. clicked.connect(lambda:self.change_main_page("menu"))
         self.menu.showEvent = lambda event: main_showEvent(self, event)
         self.greenroom.showEvent = lambda event: greenroom_showEvent(self, event)
@@ -125,6 +129,12 @@ class Client_Class(QMainWindow, main_ui) :
         print(game_status_repository.now_turn_player)
         self.func_greenroom_near_thread_finished()
         print(game_status_repository.status)
+        for i in range(4):
+            try:
+                name = game_status_repository.players[i]        
+                getattr(self,f"greenroom_player_name_{i}").setText(name)
+            except:
+                getattr(self,f"greenroom_player_name_{i}").setText(f"플레이어 {i+1}")
         if game_status_repository.status == "start" and self.main_Stacked_Widget.currentWidget() != self.start_page:
             self.change_main_page("game")
         if game_status_repository.status == "start":
@@ -134,14 +144,8 @@ class Client_Class(QMainWindow, main_ui) :
             self.data_test_0.setText(str(game_status_repository.now_turn_player == self.name))
             self.pushButton_3.setEnabled(self.name == game_status_repository.now_turn_player)
             self.pushButton_4.setEnabled(self.name == game_status_repository.now_turn_player)
-        # self.data_test_12.setText(str(player_status_repository[player_num]))
-        # self.data_test_.setText(str())
-        # self.data_test_.setText(str())
-        # self.data_test_.setText(str())
-        # self.data_test_.setText(str())
-        # self.data_test_.setText(str())
-        # elif game_status_repository.status == "ready":
-            # main.change_main_page("greenroom")
+
+        
 
     def push_data(self):
         game_status_repository.next = True
@@ -256,7 +260,7 @@ class Nomal_Client(QObject):
                 response = pickle.loads(s.recv(1024))
                 print((ip,response))
                 s.close()
-                self.ip_list.append((ip,response,t-time.time()))
+                self.ip_list.append((ip,response,time.time()-t))
                 print(f"connecting ip : {ip}")
             except:pass
             # except (socket.timeout, socket.error):

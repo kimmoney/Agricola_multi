@@ -452,7 +452,7 @@ QPushButton{
            <layout class="QVBoxLayout" name="greenroom_near_layout"/>
           </item>
           <item>
-           <widget class="QPushButton" name="back_near">
+           <widget class="QPushButton" name="near_back">
             <property name="text">
              <string>뒤로가기</string>
             </property>
@@ -467,7 +467,7 @@ QPushButton{
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_4">
           <item>
-           <widget class="QPushButton" name="back_far">
+           <widget class="QPushButton" name="far_back">
             <property name="text">
              <string>PushButton</string>
             </property>
@@ -796,7 +796,7 @@ QPushButton{
   <tabstop>btn_main_exit</tabstop>
   <tabstop>btn_main_setting</tabstop>
   <tabstop>near_new</tabstop>
-  <tabstop>back_far</tabstop>
+  <tabstop>far_back</tabstop>
   <tabstop>btn_sign_up_confirm</tabstop>
   <tabstop>btn_sign_up_exit</tabstop>
   <tabstop>input_sign_up_name</tabstop>
