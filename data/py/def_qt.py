@@ -28,7 +28,7 @@ def change_stacked_page(self, stacked_Widget, after_page):
             self.timer_close.timeout.connect(lambda : process_timer_close(self,after_page))
             self.timer_close.start(self.speed)
             self.timer_open.timeout.connect(lambda : process_timer_open(self,after_page))
-            self.opacity_effect.setOpacity(1)
+            
 
         def process_timer_close(self,after_page):
             self.opacity_effect.setOpacity(1-0.1*self.current_timer_count)
@@ -37,6 +37,7 @@ def change_stacked_page(self, stacked_Widget, after_page):
             if self.current_timer_count == self.total_timer_count:
                 self.opacity_effect_after.setOpacity(0)
                 stacked_Widget.setCurrentWidget(after_page)
+                self.opacity_effect.setOpacity(1)
                 while not after_page.isVisible():
                     pass
                 # self.title.setText(title)

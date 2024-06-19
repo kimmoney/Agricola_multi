@@ -18,8 +18,9 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import QTimer,Qt
 from PyQt5.QtGui import QFont, QFontDatabase
 from PyQt5.QtMultimedia import QMediaPlayer, QMediaContent,QMediaPlaylist
-from data.Algorithem.global_repository import *
-
+from data.Algorithem.gameready import *
+# from data.Algorithem.global_repository import *
+import data.Algorithem.global_repository as status
 
 def load_ui(relative_path):
     base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
