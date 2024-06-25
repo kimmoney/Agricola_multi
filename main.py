@@ -169,6 +169,7 @@ class Client_Class(QMainWindow, main_ui) :
 
     def func_near_ready(self):
         self.near_ready.setEnabled(False)
+        status.player_status_repository.get(self.name,)
         status.player_status_repository[self.name].ready = True
         self.client.message="process"
     
@@ -264,11 +265,12 @@ class Nomal_Client(QObject):
     def get_list_Green_room(self):
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.connect(("8.8.8.8", 80))
-        ip_address = s.getsockname()[0]
+        # ip_address = s.getsockname()[0]
+        ip_address = "192.168.0.1"
         s.close()
         myadress = ip_address
         self.ip_list = []
-        for i in range(10):
+        for i in range(65):
             ip =  ".".join(myadress.split(".")[:-1])+f".{i}"
             # try:
             try:
@@ -284,7 +286,8 @@ class Nomal_Client(QObject):
                 self.add_greenroom.emit([ip,response,time.time()-t])
                 print(f"connecting ip : {ip}")
             except:
-                print((ip,"fail"))
+                # print((ip,"fail"))
+                pass
             # except (socket.timeout, socket.error):
             #     pass
         return self.ip_list
@@ -400,7 +403,7 @@ class Server_Client():
                             client_socket.send(pickle.dumps(['Full',]))
                         else:
                             print(f"{player} 플레이어가 입장했습니다. ")
-                            status.server_player_status = status.add_player(player,client_ip)
+                            status.add_player(player,client_ip)
                             status.server_game_status.num_players+=1
                             self.player[client_ip,player]=client_socket
                             client_socket.send(pickle.dumps([status.server_game_status,status.server_round_status,status.server_player_status,"",""]))
