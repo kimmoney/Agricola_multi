@@ -1,7 +1,7 @@
 from PyQt5.QtCore import QObject
 from PyQt5.QtGui import QMouseEvent
 from data.py.def_list import *
-# sys.excepthook = custom_exception_handler
+sys.excepthook = custom_exception_handler
 from data.py.images_rc import * 
 from data.py.def_qt import *
 # run_pyrcc5()
@@ -40,6 +40,7 @@ class Client_Class(QMainWindow, main_ui) :
         self.near_back.     clicked.connect(lambda:self.change_main_page("menu"))
         self.near_ready.    clicked.connect(self.func_near_ready)
         self.far_back.      clicked.connect(lambda:self.change_main_page("menu"))
+        self.pushButton_2.  clicked.connect(lambda:self.client.message_input("exit"))
         self.pushButton_2.  clicked.connect(lambda:self.change_main_page("menu"))
 
         self.near_new.clicked.connect(self.Server_Client.start)
